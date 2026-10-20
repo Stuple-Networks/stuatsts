@@ -1,5 +1,4 @@
 let valid = 0;
-
 function redirect() { //sollte man später rmen
     if(valid == 1){
         window.location.href = "katalogV/index.html";
@@ -22,13 +21,14 @@ function checkToken() {
     } else {
         valid = 0; 
     }
-    redirect();
+    test(token);
 }
 function validateToken(token){
     const expectedToken = "vaild"; 
 
     if (token == expectedToken) {
         valid = 1; 
+        
     } else {
         valid = 0; 
     }
@@ -38,8 +38,9 @@ function bestellen(token){
     
 }
 
-function test(){
+function test(token){
     console.log("Stuat")
+    console.log(token)
 }
 
 function buy() {

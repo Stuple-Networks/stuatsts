@@ -1,8 +1,9 @@
 let valid = 0;
 
 function redirect() {
+    const currentQueryString = window.location.search; 
     if(valid == 1){
-        window.location.href = "katalogV/index.html?token=${token}";
+        window.location.href = `katalogV/index.html${currentQueryString}`;
         console.log("Token Validated")
     }
     else if(valid == 0){

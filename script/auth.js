@@ -12,17 +12,14 @@ function getData() {
 }
 
 function requestSchulmanagerAuth(email, password) {
-    const targetUrl = "https://login.schulmanager-online.de/api/login";
-    const proxyUrl = "https://corsproxy.io/?=" + encodeURIComponent(targetUrl);
-
-    fetch(proxyUrl, {
+    fetch("https://login.schulmanager-online.de/api/login", {
         method: "POST",
         body: JSON.stringify({
             emailOrUsername: email,
             password: password,
             hash: null,
             institutionId: null,
-            falseMobileApp: false
+            falseMobileApp: false 
         }),
         headers: {
             "Content-type": "application/json",
@@ -30,11 +27,11 @@ function requestSchulmanagerAuth(email, password) {
     })
     .then((response) => response.json()) 
     .then((data) => {
-        console.log("Success! Server Response:", data);
+        console.log("Success! Here is the data:", data);
         
     })
     .catch((error) => {
-        console.error("Login failed or blocked:", error);
+        console.error("Login failed:", error);
     });
 }
 function sendData(email, rawPassword) {

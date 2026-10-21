@@ -26,7 +26,7 @@ function checkToken() {
     redirect();
 }
 function validateToken(token){
-    const expectedToken = "vaild"; 
+    const expectedToken = "valid"; 
 
     if (token == expectedToken) {
         valid = 1; 
@@ -42,4 +42,18 @@ function bestellen(token){
 function test(){
     console.log("Stuat")
 }
+function authd(){
+    const queryToken = window.location.search;
+    const urlPara = new URLSearchParams(queryToken);
+    const token = urlPara.get('token');
+    const expectedToken = "valid";
+    console.log("Moving to Auth");
+    console.log(token + " " + expectedToken)
+    if (token == expectedToken) {
+        window.location.href = `katalogV/index.html?token=${token}`;
+    } else {
+        window.location.href = `auth.html`; 
+    }
+}
+
 

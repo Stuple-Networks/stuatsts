@@ -81,7 +81,7 @@ function add() {
     let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
     const produkt = {
         name: pname,
-        preis: preis,
+        preis: preis * ammount,
         groesse: groesse,
         anzahl: ammount
     }
@@ -145,8 +145,30 @@ function cart(){
     let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
     document.getElementById('corp').textContent="Warenkorb: "+ cart.length;
 }
+function order() {
+    let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+    if (cart.length === 0) {
+        alert("Dein Warenkorb ist leer!");
+        return;
+    }
+    let cartText = "Bestellung:\n";
+    let total = 0;
+    cart.forEach(function(item, index) {
+        const priceNumber = parseFloat(item.preis) || 0;
+        cartText += `${item.anzahl}x ${item.name || 'Produkt'} (${item.groesse || 'Grösse'}): ${priceNumber.toFixed(2)} €\n`;
+        total += priceNumber;
+    });
+    cartText += `\nGesamt: ${total.toFixed(2)} €`;
+    navigator.clipboard.writeText(cartText).then(function() {
+        alert("Warenkorb wurde in die Zwischenablage kopiert!");
+    }).catch(function(err) {
+        console.error("Fehler beim Kopieren: ", err);
+        alert("Kopieren fehlgeschlagen!");
+    });
+}
 //window.onload = lsitems;
 document.addEventListener('DOMContentLoaded', function() {
     lsitems();
     cart();
 });
+

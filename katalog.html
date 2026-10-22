@@ -4,11 +4,17 @@
     <link rel="stylesheet" href="styles.css">
     <title>GymLap Schülerfirma Katalog</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script/chasekochhiermalV.js" defer></script>
+    <script src="script/chasekochhiermal.js" defer></script>
 </head>
 <body>
-    <button onclick="test()" class="btntoshop"> Test </button>
+    <h1>Schülerfirma Katalog</h1>
+    <nav>
+    <button id="corp" onclick="corp()" >Warenkorb: 0</button>
+    </nav>
+    <!-- <button onclick="test()" class="btntoshop"> Test </button> -->
     <br>
+    <p id="hod" >Hoodie</p>
+    <p id="preis2">40€</p>
     <label for="groesse">Größe: </label>
     <select name="groesse" id="groesse">
         <option value="S">Small (Unisex)</option>
@@ -18,6 +24,9 @@
     <br>
     <label for="ticketNum">Anzahl von Produkten: </label>
     <input id="ticketNum" type="number" name="ticketNum" value="0" max="5" min="0" />
-    <button onclick="checkToken()" class="btnoshop"> Buy</button>
+    <button onclick="add()" class="btnoshop" id="addbutton">Zum Warenkorb hinzufügen</button>
+    <br>
+    <button onclick="lesen()" class="btnoshop" id="addbutton">Lesen</button>
+    <button onclick="clears()" class="btnoshop" id="addbutton">clear</button>
 </body>
 </html>

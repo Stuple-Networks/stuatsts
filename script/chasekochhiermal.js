@@ -70,31 +70,36 @@ function buy() { //depreacted
     const groesse = document.getElementById("groesse").value;  
     console.log(ammount +" " + groesse);
 }
-function add() {
-    const ammount = document.getElementById("ticketNum").value;
-    const groesse = document.getElementById("groesse").value;  
-    const pname = document.getElementById('hod').textContent;
-    const preismitzeichen = document.getElementById('preis2').textContent;
-    const preisohnezeichen = preismitzeichen.replace('€', '').trim();
-    const preiskommazupunkt = preisohnezeichen.replace(',','.');
-    const preis = parseFloat(preiskommazupunkt);
+function add(productName, unitPrice, sizeElementId, qtyElementId) {
+    const anzahl = parseInt(document.getElementById(qtyElementId).value) || 0;
+    const groesse = document.getElementById(sizeElementId).value;
+
+    if (anzahl <= 0) {
+        alert("Bitte wähle mindestens 1 Produkt aus!");
+        return;
+    }
+    const inspreis = unitPrice; 
+    const preis = unitPrice * anzahl; 
     let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
-    const produkt = {
-        name: pname,
-        preis: preis * ammount,
-        groesse: groesse,
-        anzahl: ammount
+    let existingItem = cart.find(item => item.name === productName && item.groesse === groesse);
+
+    if (existingItem) {
+        existingItem.anzahl += anzahl;
+        existingItem.preis += preis;
+    } else {
+        cart.push({
+            name: productName,
+            preis: preis,
+            inspreis: inspreis,
+            anzahl: anzahl,
+            groesse: groesse
+        });
     }
-    if(ammount == 0){
-        console.log("No Ammount defined! Not Adding");
-    }else{
-        
-        cart.push(produkt);
-        localStorage.setItem('shoppingCart', JSON.stringify(cart));
-        document.getElementById('corp').textContent="Warenkorb: "+ cart.length;
+    localStorage.setItem('shoppingCart', JSON.stringify(cart));
+    const corpBtn = document.getElementById('corp');
+    if (corpBtn) {
+        corpBtn.textContent = "Warenkorb: " + cart.length;
     }
-    
-    //console.log(ammount +" " + groesse + " "+ pname);
 }
 function lesen(){
     let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
@@ -130,7 +135,14 @@ function lsitems(){
     cart.forEach(function(item) {
         const listItem = document.createElement('li');
         const priceNumber = parseFloat(item.preis) || 0;
-        listItem.textContent = `${item.anzahl}x ${item.name || 'Produkt'} (${item.groesse || 'Grösse'}): ${priceNumber.toFixed(2)} €`;
+        const textSpan = document.createElement('span');
+        listItem.textContent = `${item.anzahl}x ${item.name || 'Produkt'} (${item.groesse || 'Grösse'}): ${priceNumber.toFixed(2)}€ (Pro Stück: ${item.inspreis}€) `;
+        const removeBtn = document.createElement('button');
+        removeBtn.textContent = 'Entfernen';
+        removeBtn.onclick = function() {
+            removeItems(item.name, item.groesse);
+        };
+        listItem.appendChild(removeBtn);
         cartList.appendChild(listItem);
         total += priceNumber;
     });
@@ -165,6 +177,43 @@ function order() {
         console.error("Fehler beim Kopieren: ", err);
         alert("Kopieren fehlgeschlagen!");
     });
+}
+function removeItems(prname,prg){
+    let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+    const cartList = document.getElementById('cart-list');
+    const cartTotal = document.getElementById('cart-total');
+    const index = cart.findIndex(item => item.name === prname & item.groesse === prg);
+    if (!cartList || !cartTotal) return;
+    cartList.innerHTML = "";
+    if (index !== -1) {
+        cart.splice(index, 1);
+        localStorage.setItem('shoppingCart', JSON.stringify(cart));
+        if(cart.length === 0){
+            cartList.innerHTML = "<li>Dein Warenkorb ist leer.</li>";
+            cartTotal.textContent = "Gesamt: 0,00 €";
+            return;
+        }
+        let total = 0;
+        cart.forEach(function(item) {
+            const listItem = document.createElement('li');
+            const priceNumber = parseFloat(item.preis) || 0;
+            const textSpan = document.createElement('span');
+            listItem.textContent = `${item.anzahl}x ${item.name || 'Produkt'} (${item.groesse || 'Grösse'}): ${priceNumber.toFixed(2)}€ (Pro Stück: ${item.inspreis}€) `;
+            const removeBtn = document.createElement('button');
+            removeBtn.textContent = 'Entfernen';
+            removeBtn.onclick = function() {
+                removeItems(item.name, item.groesse);
+            };
+            listItem.appendChild(removeBtn);
+            cartList.appendChild(listItem);
+            total += priceNumber;
+        });
+        cartTotal.textContent = `Gesamt: ${total.toFixed(2)} €`;
+
+    }else{
+        console.log("could not remove item")
+    }
+    
 }
 //window.onload = lsitems;
 document.addEventListener('DOMContentLoaded', function() {

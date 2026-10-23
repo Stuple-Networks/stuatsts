@@ -13,20 +13,34 @@
     </nav>
     <!-- <button onclick="test()" class="btntoshop"> Test </button> -->
     <br>
-    <p id="hod" >Hoodie</p>
-    <p id="preis2">40€</p>
-    <label for="groesse">Größe: </label>
-    <select name="groesse" id="groesse">
+    <p>Hoodie</p>
+    <p>40€</p>
+    <label for="groesse-hoodie">Größe: </label>
+    <select name="groesse" id="groesse-hoodie">
         <option value="S">Small (Unisex)</option>
         <option value="M">Medium (Unisex)</option>
         <option value="L">Large (Unisex)</option>
     </select>
     <br>
-    <label for="ticketNum">Anzahl von Produkten: </label>
-    <input id="ticketNum" type="number" name="ticketNum" value="0" max="5" min="0" />
-    <button onclick="add()" class="btnoshop" id="addbutton">Zum Warenkorb hinzufügen</button>
+    <label for="ticketNum-hoodie">Anzahl von Produkten: </label>
+    <input id="ticketNum-hoodie" type="number" name="ticketNum" value="0" max="5" min="0" />
+    <button onclick="add('Hoodie', 40, 'groesse-hoodie', 'ticketNum-hoodie')" class="btnoshop" id="addbutton">Zum Warenkorb hinzufügen</button>
+    <br>
+    <p>cap</p>
+    <p>20€</p>
+    <label for="groesse-cap">Größe: </label>
+    <select name="groesse" id="groesse-cap">
+        <option value="S">Small (Apfel)</option>
+        <option value="M">Medium (Orange)</option>
+        <option value="L">Large (Melone)</option>
+    </select>
+    <br>
+    <label for="ticketNum-cap">Anzahl von Produkten: </label>
+    <input id="ticketNum-cap" type="number" name="ticketNum" value="0" max="5" min="0" />
+    <button onclick="add('Cap', 20, 'groesse-cap', 'ticketNum-cap')" class="btnoshop" id="addbutton">Zum Warenkorb hinzufügen</button>
     <br>
     <button onclick="lesen()" class="btnoshop" id="addbutton">Lesen</button>
     <button onclick="clears()" class="btnoshop" id="addbutton">clear</button>
+    
 </body>
 </html>

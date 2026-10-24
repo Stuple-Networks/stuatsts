@@ -138,7 +138,7 @@ function lsitems(){
         const textSpan = document.createElement('span');
         listItem.textContent = `${item.anzahl}x ${item.name || 'Produkt'} (${item.groesse || 'Grösse'}): ${priceNumber.toFixed(2)}€ (Pro Stück: ${item.inspreis}€) `;
         const removeBtn = document.createElement('button');
-        removeBtn.textContent = 'Entfernen';
+        removeBtn.innerHTML = `<i class="fa-solid fa-trash-can"></i>`;
         removeBtn.onclick = function() {
             removeItems(item.name, item.groesse);
         };
@@ -155,7 +155,7 @@ function corp(){
 }
 function cart(){
     let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
-    document.getElementById('corp').textContent="Warenkorb: "+ cart.length;
+    document.getElementById('corp').innerHTML=`<i class="fa-solid fa-cart-shopping"></i>: ${cart.length}`;
 }
 function order() {
     let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];

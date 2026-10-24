@@ -1,4 +1,61 @@
-h1 {
+
+nav {
+    text-align: right;
+}
+/* katalog header div */
+.header-div {
+    display: flex;  
+    position: relative;
     margin: auto;   
-    text-align: center;
+    justify-content: center;
+    align-items: center;     
+    border-bottom: 1px solid #aaa;
+}
+.header-div h1 {
+    margin:  0;
+    font-size: 5vw;
+}
+
+.header-ico {
+    object-fit: contain;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    height: 91px;
+    width: 336px;
+    scale: 0.6vw;
+}
+
+.header-navdiv button {
+    margin-top: 5px; 
+    margin-bottom: 5px;
+}
+/* katalog body div */
+.katdiv {
+    border: 1px solid #aaa;
+    border-radius: 12px;
+    align-items: center;
+    display:block;
+    
+}
+.katdiv img {
+    display: block;
+    margin-left: 0;
+    margin-right: auto;
+    float: left;
+}
+.katdiv button{
+    margin-bottom: 5px;
+}
+.btnoshop {
+    margin-top: 1px;
+}
+
+.pr{
+    margin: auto;
+    border-bottom: 1px solid #aaa;
+}
+.prend{
+    margin: auto;
+    
 }

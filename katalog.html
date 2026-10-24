@@ -1,20 +1,39 @@
 <!DOCTYPE html>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>GymLap Schülerfirma Katalog</title>
     <link rel="stylesheet" href="styles.css">
     <script src="script/chasekochhiermal.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></head>
+    <style> 
+    ::-webkit-scrollbar {
+        width: 10px; 
+    }
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #888; 
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555; 
+    }
+    </style>
 </head>
 <body>
-    <h1>Schülerfirma Katalog</h1>
-    <nav>
-    <button id="corp" onclick="corp()" >Warenkorb: 0</button>
-    </nav>
+    <div class="header-div"><img src="img/gymlap_logo.png" class="header-ico" ><h1>Schülerfirma Katalog</h1></div>
+    <div class="header-navdiv"><nav>
+    <button id="corp" onclick="corp()" ><i class="fa-solid fa-cart-shopping"></i>Warenkorb: 0</button>
+    </nav></div>
+    <div class="katdiv">
     <!-- <button onclick="test()" class="btntoshop"> Test </button> -->
     <br>
-    <p>Hoodie</p>
-    <p>40€</p>
+    <div class="pr">
+    <img src="img/gymlap_logo.png" class="pr-ico"><p>Hoodie 40€</p>
     <label for="groesse-hoodie">Größe: </label>
     <select name="groesse" id="groesse-hoodie">
         <option value="S">Small (Unisex)</option>
@@ -26,8 +45,9 @@
     <input id="ticketNum-hoodie" type="number" name="ticketNum" value="0" max="5" min="0" />
     <button onclick="add('Hoodie', 40, 'groesse-hoodie', 'ticketNum-hoodie')" class="btnoshop" id="addbutton">Zum Warenkorb hinzufügen</button>
     <br>
-    <p>cap</p>
-    <p>20€</p>
+    </div>
+    <div class="prend">
+    <img src="img/gymlap_logo.png" class="pr-ico"><p>Cap 20€</p>
     <label for="groesse-cap">Größe: </label>
     <select name="groesse" id="groesse-cap">
         <option value="S">Small (Apfel)</option>
@@ -39,8 +59,10 @@
     <input id="ticketNum-cap" type="number" name="ticketNum" value="0" max="5" min="0" />
     <button onclick="add('Cap', 20, 'groesse-cap', 'ticketNum-cap')" class="btnoshop" id="addbutton">Zum Warenkorb hinzufügen</button>
     <br>
-    <button onclick="lesen()" class="btnoshop" id="addbutton">Lesen</button>
-    <button onclick="clears()" class="btnoshop" id="addbutton">clear</button>
+    </div>
+    </div>
+    <!--<button onclick="lesen()"  id="addbutton">Lesen</button>
+    <button onclick="clears()"  id="addbutton">clear</button> -->
     
 </body>
 </html>

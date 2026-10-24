@@ -23,7 +23,7 @@ nav {
     left: 0;
     height: 91px;
     width: 336px;
-    scale: 0.6vw;
+    scale: 100%;
 }
 
 .header-navdiv button {
@@ -50,7 +50,30 @@ nav {
 .btnoshop {
     margin-top: 1px;
 }
-
+/* phones and tl */
+@media (max-width: 960px) { /* logo still needs to move over in next fix to the left*/
+    .header-ico {
+        position: absolute;
+        left: 0;
+        height: 91px;
+        width: 336px;
+        object-fit: contain;
+        transform: scale(0.6);
+        transform-origin: left center;
+    }
+}
+@media (max-width: 768px) { /* logo still needs to move over in next fix to the left*/
+    .header-ico {
+        object-fit: contain;
+        align-items: center;
+        position: absolute;
+        left: 0;
+        height: 91px;
+        width: 336px;
+        transform: scale(0.3);
+        transform-origin: left center;
+    }
+}
 .pr{
     margin: auto;
     border-bottom: 1px solid #aaa;

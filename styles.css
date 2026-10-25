@@ -30,6 +30,12 @@ nav {
     margin-top: 5px; 
     margin-bottom: 5px;
 }
+.buttonbacknav{
+    margin-top: 5px; 
+    margin-bottom: 5px;
+    float: left;
+}
+
 /* katalog body div */
 .katdiv {
     border: 1px solid #aaa;
@@ -73,6 +79,33 @@ nav {
         transform: scale(0.3);
         transform-origin: left center;
     }
+}
+/* warenkorp stuff */
+h6 {
+    display: flex;  
+    position: relative;
+    margin: auto;   
+    justify-content: center;
+    align-items: center; 
+    font-size: 5vw;
+}
+.cart {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.corpdiv {
+    border: 1px solid #aaa;
+    border-radius: 12px;
+    
+}
+.corpitemdiv {
+    border-bottom: 1px solid #aaa;
+    
+}
+.corpitemdiv table, th, tr {
+    border: 1px solid #aaa;
+    border-radius: 12px;
 }
 .pr{
     margin: auto;

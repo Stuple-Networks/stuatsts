@@ -8,15 +8,47 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="script/chasekochhiermal.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></head>
+    <style> 
+    ::-webkit-scrollbar {
+        width: 10px; 
+    }
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #888; 
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555; 
+    }
+    </style>
 </head>
 <body>
-    <h1>Schülerfirma Katalog Warenkorb</h1>
+    <div class="header-div"><img src="img/gymlap_logo.png" class="header-ico">
+    <h1>Warenkorb</h1></div>
+    <div class="header-navdiv">
     <nav2>
         <button onclick="document.location='katalog.html'"> back</button>
     </nav2>
-    <h2>Dein Warenkorb</h2>
-    <ul id="cart-list"></ul>
-    <p id="cart-total">Gesamt: 0,00 €</p>
-    <button onclick="document.location='buy.html'">Bestellen</button>
+    </div>
+    
+    <h6>Ihr Warenkorb</h6>
+    <div class="corpdiv">
+        <div class="corpitemdiv">
+            <table style="width:100% ;">
+                <tr>
+                    <th>Produkt</th>
+                    <th>Preis</th>
+                    <th>Anzahl</th>
+                    <th>Einheitpreis</th>
+                </tr>
+            </table>
+            <ul id="cart-list" class="cart"></ul>
+            <p id="cart-total">Gesamt: 0,00 €</p>
+        </div>
+    </div>
+    <button onclick="document.location='buy.html'">Anfragen</button>
 </body>
 </html>

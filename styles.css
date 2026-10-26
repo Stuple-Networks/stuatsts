@@ -81,6 +81,49 @@ nav {
     }
 }
 /* warenkorp stuff */
+#corp {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#corp:hover {
+    background-color: #2980b9;
+}
+#cart-total {
+    font-size: 20px;
+    font-weight: bold;
+    color: #2c3e50;
+    text-align: right;
+    margin-top: 15px;
+}
+#cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+#cart-table th, 
+#cart-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+#cart-table th {
+    background-color: #2c3e50;
+    color: white;
+    font-weight: 600;
+}
 h6 {
     display: flex;  
     position: relative;
@@ -89,23 +132,9 @@ h6 {
     align-items: center; 
     font-size: 5vw;
 }
-.cart {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-.corpdiv {
-    border: 1px solid #aaa;
-    border-radius: 12px;
-    
-}
-.corpitemdiv {
-    border-bottom: 1px solid #aaa;
-    
-}
-.corpitemdiv table, th, tr {
-    border: 1px solid #aaa;
-    border-radius: 12px;
+#cart-table th:first-child,
+#cart-table td:first-child {
+    text-align: center;
 }
 .pr{
     margin: auto;

@@ -42,9 +42,16 @@
         <option value="L">Large (Unisex)</option>
     </select>
     <br>
+    <label for="color-hoodie">Farbe: </label>
+    <select name="color" id="color-hoodie">
+        <option value="Schwarz">Schwarz</option>
+        <option value="Blau">Blau</option>
+        <option value="Grau">Grau</option>
+    </select>
+    <br>
     <label for="ticketNum-hoodie">Anzahl von Produkten: </label>
     <input id="ticketNum-hoodie" type="number" name="ticketNum" value="0" max="5" min="0" />
-    <button onclick="add('Hoodie', 40, 'groesse-hoodie', 'ticketNum-hoodie')" class="btnoshop" id="addbutton">Zum Warenkorb hinzufügen</button>
+    <button onclick="add('Hoodie', 40, 'groesse-hoodie', 'ticketNum-hoodie', 'color-hoodie')" class="btnoshop" id="addbutton">Zum Warenkorb hinzufügen</button>
     <br>
     </div>
     <div class="prend">
@@ -58,7 +65,7 @@
     <br>
     <label for="ticketNum-cap">Anzahl von Produkten: </label>
     <input id="ticketNum-cap" type="number" name="ticketNum" value="0" max="5" min="0" />
-    <button onclick="add('Cap', 20, 'groesse-cap', 'ticketNum-cap')" class="btnoshop" id="addbutton">Zum Warenkorb hinzufügen</button>
+    <button onclick="add('Cap', 20, 'groesse-cap', 'ticketNum-cap', null)" class="btnoshop" id="addbutton">Zum Warenkorb hinzufügen</button>
     <br>
     </div>
     </div>

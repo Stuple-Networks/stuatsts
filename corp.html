@@ -37,18 +37,26 @@
     <h6>Ihr Warenkorb</h6>
     <div class="corpdiv">
         <div class="corpitemdiv">
-            <table style="width:100% ;">
-                <tr>
-                    <th>Produkt</th>
-                    <th>Preis</th>
-                    <th>Anzahl</th>
-                    <th>Einheitpreis</th>
-                </tr>
+            <table id="cart-table" border="1" cellpadding="8" style="border-collapse: collapse; width: 100%;">
+                <thead>
+                    <tr>
+                        <th>Aktion</th>
+                        <th>Produkt</th>
+                        <th>Größe</th>
+                        <th>Anzahl</th>
+                        <th>Einzelpreis</th>
+                        <th>Gesamtpreis</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-list">
+
+                </tbody>
             </table>
-            <ul id="cart-list" class="cart"></ul>
+            
             <p id="cart-total">Gesamt: 0,00 €</p>
         </div>
+        <button onclick="document.location='buy.html'" id="anfragen" class="anfragen" >Anfragen</button>
     </div>
-    <button onclick="document.location='buy.html'">Anfragen</button>
+    
 </body>
 </html>

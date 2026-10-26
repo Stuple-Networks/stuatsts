@@ -1,14 +1,10 @@
 let valid = 0;
 
-//document.getElementById('addbutton').addEventListener('onclick', function (event) {
-//    event.preventDefault();
-//});
-
 function redirect() { //deprecated
     const currentQueryString = window.location.search; 
     if(valid == 1){
         window.location.href = `katalogV/index.html${currentQueryString}`;
-        console.log("Token Validated")
+        console.log("Token Validated");
     }
     else if(valid == 0){
         window.location.href = "katalogUV/index.html";
@@ -18,6 +14,7 @@ function redirect() { //deprecated
         console.error("Could not Validate Token");
     }
 }
+
 function checkToken() { //deprecated
     const queryToken = window.location.search;
     const urlPara = new URLSearchParams(queryToken);
@@ -29,9 +26,9 @@ function checkToken() { //deprecated
     }
     redirect();
 }
-function validateToken(token){ //depreacted
-    const expectedToken = "valid"; 
 
+function validateToken(token){ //deprecated
+    const expectedToken = "valid"; 
     if (token == expectedToken) {
         valid = 1; 
     } else {
@@ -39,40 +36,26 @@ function validateToken(token){ //depreacted
     }
 }
 
-function bestellen(token){ //deprecated
-    
-}
-
-function test(){
-    console.log("Stuat")
-}
-function authd(){ //deprecated
-    const queryToken = window.location.search;
-    const urlPara = new URLSearchParams(queryToken);
-    const token = urlPara.get('token');
-    const expectedToken = "valid";
-    console.log("Moving to Auth");
-    console.log(token + " " + expectedToken)
-    if (token == expectedToken) {
-        window.location.href = `katalogV/index.html?token=${token}`;
-    } else {
-        window.location.href = `auth.html`; 
-    }
-}
-
 function test(token){
-    console.log("Stuat")
-    console.log(token)
+    console.log("Stuat");
+    console.log(token);
 }
 
-function buy() { //depreacted
+function buy() { //deprecated
     const ammount = document.getElementById("ticketNum").value;
     const groesse = document.getElementById("groesse").value;  
     console.log(ammount +" " + groesse);
 }
-function add(productName, unitPrice, sizeElementId, qtyElementId) {
+
+function add(productName, unitPrice, sizeElementId, qtyElementId, colorElementId) {
     const anzahl = parseInt(document.getElementById(qtyElementId).value) || 0;
     const groesse = document.getElementById(sizeElementId).value;
+    
+    let color = "Standard";
+    if (colorElementId) {
+        const colorEl = document.getElementById(colorElementId);
+        if (colorEl) color = colorEl.value;
+    }
 
     if (anzahl <= 0) {
         alert("Bitte wähle mindestens 1 Produkt aus!");
@@ -81,7 +64,8 @@ function add(productName, unitPrice, sizeElementId, qtyElementId) {
     const inspreis = unitPrice; 
     const preis = unitPrice * anzahl; 
     let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
-    let existingItem = cart.find(item => item.name === productName && item.groesse === groesse);
+    
+    let existingItem = cart.find(item => item.name === productName && item.groesse === groesse && (item.color || "Standard") === color);
 
     if (existingItem) {
         existingItem.anzahl += anzahl;
@@ -92,15 +76,15 @@ function add(productName, unitPrice, sizeElementId, qtyElementId) {
             preis: preis,
             inspreis: inspreis,
             anzahl: anzahl,
-            groesse: groesse
+            groesse: groesse,
+            color: color
         });
     }
     localStorage.setItem('shoppingCart', JSON.stringify(cart));
-    const corpBtn = document.getElementById('corp');
-    if (corpBtn) {
-        corpBtn.textContent = "Warenkorb: " + cart.length;
-    }
+    cartCountUpdate();
+    
 }
+
 function lesen(){
     let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
     if (cart.length === 0) {
@@ -109,54 +93,94 @@ function lesen(){
     }
     let total = 0;
     cart.forEach(function(item, index) {
-        console.log(`Item ${index + 1}: ${item.name} - ${item.groesse} - ${item.anzahl} - ${item.preis}€`);
-        total += item.price;
+        console.log(`Item ${index + 1}: ${item.name} (${item.color}) - ${item.groesse} - ${item.anzahl}x - ${item.preis}€`);
+        total += item.preis;
     });
 }
+
 function clears(){
-    let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
     localStorage.removeItem('shoppingCart');
-    document.getElementById('corp').textContent="Warenkorb: 0";
-    //localStorage.clear()
+    cartCountUpdate();
+    lsitems();
 }
 
-function lsitems(){
+function cartCountUpdate() {
+    let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+    const corpBtn = document.getElementById('corp');
+    if (corpBtn) {
+        corpBtn.innerHTML = `<i class="fa-solid fa-cart-shopping"></i>: ${cart.length}`;
+    }
+}
+
+function lsitems() {
     let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
     const cartList = document.getElementById('cart-list');
     const cartTotal = document.getElementById('cart-total');
+    
     if (!cartList || !cartTotal) return;
+    
     cartList.innerHTML = "";
+    
     if (cart.length === 0) {
-        cartList.innerHTML = "<li>Dein Warenkorb ist leer.</li>";
+        cartList.innerHTML = `<tr><td colspan="6" style="text-align: center;">Dein Warenkorb ist leer.</td></tr>`;
         cartTotal.textContent = "Gesamt: 0,00 €";
         return;
     }
+    
     let total = 0;
+
     cart.forEach(function(item) {
-        const listItem = document.createElement('li');
+        const row = document.createElement('tr');
         const priceNumber = parseFloat(item.preis) || 0;
-        const textSpan = document.createElement('span');
-        listItem.textContent = `${item.anzahl}x ${item.name || 'Produkt'} (${item.groesse || 'Grösse'}): ${priceNumber.toFixed(2)}€ (Pro Stück: ${item.inspreis}€) `;
+        const singlePrice = parseFloat(item.inspreis) || 0;
+        
+        const actionTd = document.createElement('td');
+        actionTd.style.textAlign = 'center';
         const removeBtn = document.createElement('button');
         removeBtn.innerHTML = `<i class="fa-solid fa-trash-can"></i>`;
+
         removeBtn.onclick = function() {
-            removeItems(item.name, item.groesse);
+            removeItems(item.name, item.groesse, item.color);
         };
-        listItem.appendChild(removeBtn);
-        cartList.appendChild(listItem);
+        actionTd.appendChild(removeBtn);
+        row.appendChild(actionTd);
+
+        const nameTd = document.createElement('td');
+        const displayColor = item.color && item.color !== "Standard" ? ` (${item.color})` : "";
+        nameTd.textContent = (item.name || 'Produkt') + displayColor;
+        row.appendChild(nameTd);
+
+        const sizeTd = document.createElement('td');
+        sizeTd.textContent = item.groesse || 'Grösse';
+        row.appendChild(sizeTd);
+
+        const qtyTd = document.createElement('td');
+        qtyTd.textContent = item.anzahl;
+        row.appendChild(qtyTd);
+
+        const singlePriceTd = document.createElement('td');
+        singlePriceTd.textContent = `${singlePrice.toFixed(2)} €`;
+        row.appendChild(singlePriceTd);
+
+        const totalRowTd = document.createElement('td');
+        totalRowTd.textContent = `${priceNumber.toFixed(2)} €`;
+        row.appendChild(totalRowTd);
+
+        cartList.appendChild(row);
         total += priceNumber;
     });
+
     cartTotal.textContent = `Gesamt: ${total.toFixed(2)} €`;
 }
+
 function corp(){
-    lsitems();
     window.location.href = `corp.html`;
-    lsitems();
 }
+
 function cart(){
-    let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
-    document.getElementById('corp').innerHTML=`<i class="fa-solid fa-cart-shopping"></i>: ${cart.length}`;
+    cartCountUpdate();
 }
+
 function order() {
     let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
     if (cart.length === 0) {
@@ -165,12 +189,14 @@ function order() {
     }
     let cartText = "Bestellung:\n";
     let total = 0;
-    cart.forEach(function(item, index) {
+    cart.forEach(function(item) {
         const priceNumber = parseFloat(item.preis) || 0;
-        cartText += `${item.anzahl}x ${item.name || 'Produkt'} (${item.groesse || 'Grösse'}): ${priceNumber.toFixed(2)} €\n`;
+        const colorText = item.color && item.color !== "Standard" ? ` (${item.color})` : "";
+        cartText += `${item.anzahl}x ${item.name || 'Produkt'}${colorText} (${item.groesse || 'Grösse'}): ${priceNumber.toFixed(2)} €\n`;
         total += priceNumber;
     });
     cartText += `\nGesamt: ${total.toFixed(2)} €`;
+    
     navigator.clipboard.writeText(cartText).then(function() {
         alert("Warenkorb wurde in die Zwischenablage kopiert!");
     }).catch(function(err) {
@@ -178,46 +204,31 @@ function order() {
         alert("Kopieren fehlgeschlagen!");
     });
 }
-function removeItems(prname,prg){
+
+function removeItems(prname, prg, prcolor) {
     let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
-    const cartList = document.getElementById('cart-list');
-    const cartTotal = document.getElementById('cart-total');
-    const index = cart.findIndex(item => item.name === prname & item.groesse === prg);
-    if (!cartList || !cartTotal) return;
-    cartList.innerHTML = "";
+    const targetColor = prcolor || "Standard";
+    
+    // Find index matching name, size, and color properly
+    const index = cart.findIndex(item => {
+        const itemColor = item.color || "Standard";
+        return item.name === prname && item.groesse === prg && itemColor === targetColor;
+    });
+    
     if (index !== -1) {
+        // Remove item from array and save back to localStorage
         cart.splice(index, 1);
         localStorage.setItem('shoppingCart', JSON.stringify(cart));
-        if(cart.length === 0){
-            cartList.innerHTML = "<li>Dein Warenkorb ist leer.</li>";
-            cartTotal.textContent = "Gesamt: 0,00 €";
-            return;
-        }
-        let total = 0;
-        cart.forEach(function(item) {
-            const listItem = document.createElement('li');
-            const priceNumber = parseFloat(item.preis) || 0;
-            const textSpan = document.createElement('span');
-            listItem.textContent = `${item.anzahl}x ${item.name || 'Produkt'} (${item.groesse || 'Grösse'}): ${priceNumber.toFixed(2)}€ (Pro Stück: ${item.inspreis}€) `;
-            const removeBtn = document.createElement('button');
-            removeBtn.textContent = 'Entfernen';
-            removeBtn.onclick = function() {
-                removeItems(item.name, item.groesse);
-            };
-            listItem.appendChild(removeBtn);
-            cartList.appendChild(listItem);
-            total += priceNumber;
-        });
-        cartTotal.textContent = `Gesamt: ${total.toFixed(2)} €`;
-
-    }else{
-        console.log("could not remove item")
+        
+        // Update header badge and cleanly redraw table
+        cartCountUpdate();
+        lsitems();
+    } else {
+        console.log("Could not find item to remove:", prname, prg, targetColor);
     }
-    
 }
-//window.onload = lsitems;
+
 document.addEventListener('DOMContentLoaded', function() {
     lsitems();
-    cart();
+    cartCountUpdate();
 });
-

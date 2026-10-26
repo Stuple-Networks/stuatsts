@@ -209,18 +209,18 @@ function removeItems(prname, prg, prcolor) {
     let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
     const targetColor = prcolor || "Standard";
     
-    // Find index matching name, size, and color properly
+    
     const index = cart.findIndex(item => {
         const itemColor = item.color || "Standard";
         return item.name === prname && item.groesse === prg && itemColor === targetColor;
     });
     
     if (index !== -1) {
-        // Remove item from array and save back to localStorage
+        
         cart.splice(index, 1);
         localStorage.setItem('shoppingCart', JSON.stringify(cart));
         
-        // Update header badge and cleanly redraw table
+        
         cartCountUpdate();
         lsitems();
     } else {

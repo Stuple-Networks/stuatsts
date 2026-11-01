@@ -136,6 +136,21 @@ h6 {
 #cart-table td:first-child {
     text-align: center;
 }
+
+#anfragen {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#anfragen:hover {
+    background-color: #2980b9;
+}
 .pr{
     margin: auto;
     border-bottom: 1px solid #aaa;

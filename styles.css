@@ -1,18 +1,19 @@
-
 nav {
     text-align: right;
 }
+
 /* katalog header div */
 .header-div {
-    display: flex;  
+    display: flex;
     position: relative;
-    margin: auto;   
+    margin: auto;
     justify-content: center;
-    align-items: center;     
+    align-items: center;
     border-bottom: 1px solid #aaa;
 }
+
 .header-div h1 {
-    margin:  0;
+    margin: 0;
     font-size: 5vw;
 }
 
@@ -23,21 +24,22 @@ nav {
     left: 0;
     height: 91px;
     width: 336px;
-    scale: 100%;    
+    scale: 100%;
 }
-.pr img{
+
+.pr img {
     object-fit: contain;
-    position:relative;
-    scale: 50%;
-    height: 336px;
-    width: 336px;
+    position: relative;
+    scale: 100%;
 }
+
 .header-navdiv button {
-    margin-top: 5px; 
+    margin-top: 5px;
     margin-bottom: 5px;
 }
-.buttonbacknav{
-    margin-top: 5px; 
+
+.buttonbacknav {
+    margin-top: 5px;
     margin-bottom: 5px;
     float: left;
 }
@@ -47,23 +49,22 @@ nav {
     border: 1px solid #aaa;
     border-radius: 12px;
     align-items: center;
-    display:block;
-    
-}
-.katdiv img {
     display: block;
-    margin-left: 0;
-    margin-right: auto;
-    float: left;
+
 }
-.katdiv button{
+
+.katdiv button {
     margin-bottom: 5px;
 }
+
 .btnoshop {
     margin-top: 1px;
 }
+
 /* phones and tl */
-@media (max-width: 960px) { /* logo still needs to move over in next fix to the left*/
+@media (max-width: 960px) {
+
+    /* logo still needs to move over in next fix to the left*/
     .header-ico {
         position: absolute;
         left: 0;
@@ -74,7 +75,10 @@ nav {
         transform-origin: left center;
     }
 }
-@media (max-width: 768px) { /* logo still needs to move over in next fix to the left*/
+
+@media (max-width: 768px) {
+
+    /* logo still needs to move over in next fix to the left*/
     .header-ico {
         object-fit: contain;
         align-items: center;
@@ -86,6 +90,7 @@ nav {
         transform-origin: left center;
     }
 }
+
 /* warenkorp stuff */
 #corp {
     background-color: #3498db;
@@ -101,6 +106,7 @@ nav {
 #corp:hover {
     background-color: #2980b9;
 }
+
 #cart-total {
     font-size: 20px;
     font-weight: bold;
@@ -108,17 +114,18 @@ nav {
     text-align: right;
     margin-top: 15px;
 }
+
 #cart-table {
     width: 100%;
     border-collapse: collapse;
     background: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 6px;
     overflow: hidden;
     margin-bottom: 20px;
 }
 
-#cart-table th, 
+#cart-table th,
 #cart-table td {
     padding: 12px 15px;
     text-align: left;
@@ -130,14 +137,16 @@ nav {
     color: white;
     font-weight: 600;
 }
+
 h6 {
-    display: flex;  
+    display: flex;
     position: relative;
-    margin: auto;   
+    margin: auto;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
     font-size: 5vw;
 }
+
 #cart-table th:first-child,
 #cart-table td:first-child {
     text-align: center;
@@ -157,11 +166,41 @@ h6 {
 #anfragen:hover {
     background-color: #2980b9;
 }
-.pr{
-    margin: auto;
+
+
+
+
+.pr {
+    display: flex;
     border-bottom: 1px solid #aaa;
+    height: 200px;
 }
-.prend{
+
+
+
+.pr div {
+    margin-left: 40px;
+    align-content: center;
+}
+
+
+.prend {
     margin: auto;
-    
+
+}
+
+
+
+
+.product-head {
+    margin: auto;
+    font-size: x-large;
+    font-weight: bolder;
+}
+
+.product-img {
+    width: 10%;
+    padding: 1%;
+    height: auto;
+    object-fit: contain;
 }

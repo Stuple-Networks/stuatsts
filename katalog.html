@@ -1,107 +1,221 @@
 <!DOCTYPE html>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>GymLap Schülerfirma Katalog</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script/chasekochhiermal.js" defer></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></head>
-    <style> 
+    <script src="script/katalog.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<style>
     ::-webkit-scrollbar {
-        width: 10px; 
+        width: 10px;
     }
+
     ::-webkit-scrollbar-track {
-        background: #f1f1f1; 
+        background: #f1f1f1;
     }
+
     ::-webkit-scrollbar-thumb {
-        background: #888; 
+        background: #888;
     }
 
     ::-webkit-scrollbar-thumb:hover {
-        background: #555; 
+        background: #555;
     }
-    </style>
+</style>
 </head>
+
 <body>
-    <div class="header-div"><img src="img/gymlap_logo.png" class="header-ico"  ><h1>Schülerfirma Katalog</h1></div>
-    <div class="header-navdiv"><nav>
-    <button class="btnoshop buttonbacknav" id="anfragen" onclick="document.location='index.html'">Zurück</button>
-    <button id="corp" onclick="corp()" ><i class="fa-solid fa-cart-shopping"></i>: 0</button>
-    </nav></div>
+    <div class="header-div"><img src="img/gymlap_logo.png" class="header-ico">
+        <h1>Schülerfirma Katalog</h1>
+    </div>
+    <div class="header-navdiv">
+        <nav>
+            <button class="btnoshop buttonbacknav" id="anfragen"
+                onclick="document.location='index.html'">Zurück</button>
+            <button id="corp" onclick="corp()"><i class="fa-solid fa-cart-shopping"></i>: 0</button>
+        </nav>
+    </div>
     <div class="katdiv">
-    <!-- <button onclick="test()" class="btntoshop"> Test </button> -->
-    <br>
-    <div class="pr">
-    <img src="img/Hoodie Vorderseite.jpeg" class="pr-ico"><p>Hoodie 35.00€</p>
-    <label for="groesse-hoodie">Größe: </label>
-    <select name="groesse" id="groesse-hoodie">
-        <option value="S">Small (Unisex)</option>
-        <option value="M">Medium (Unisex)</option>
-        <option value="L">Large (Unisex)</option>
-    </select>
-    <br>
-    <label for="color-hoodie">Farbe: </label>
-    <select name="color" id="color-hoodie">
-        <option value="Schwarz">Schwarz</option>
-        <option value="Blau">Blau</option>
-        <option value="Grau">Grau</option>
-    </select>
-    <br>
-    <label for="ticketNum-hoodie">Anzahl von Produkten: </label>
-    <input id="ticketNum-hoodie" type="number" name="ticketNum" value="0" max="5" min="0" />
-    <button onclick="add('Hoodie', 35, 'groesse-hoodie', 'ticketNum-hoodie', 'color-hoodie')" class="btnoshop" id="addbutton">Zum Warenkorb hinzufügen</button>
-    <br>
+
+
+        <!-- 0 HOODIE-->
+        <div class="pr">
+            <img src="img/0_black.jpg" class="product-img">
+            <div>
+                <p class="product-head" name="product_name" data-name="Hoodie">Hoodie - Unisex</p>
+                <p name="price" data-price="13">Preis: 35€</p>
+                <label for=size>Größe: </label>
+                <select name="size" aria-label="Größe:">
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                    <option value="3XL">3XL</option>
+                    <option value="4XL">4XL</option>
+                    <option value="5XL">5XL</option>
+                </select>
+                <br>
+                <label for="color">Farbe: </label>
+                <select name="color" onchange="changeColor(this, 0)">
+                    <option value="black">black</option>
+                    <option value="burgundy">burgundy</option>
+                    <option value="navy">navy</option>
+                    <option value="bottlegreen">bottlegreen</option>
+                </select>
+                <br>
+                <label for="buy_count">Anzahl von Produkten: </label>
+                <input type="number" name="buy_count" value="0" max="5" min="0" />
+                <button onclick="add(this, 0)" class="btnoshop">Zum Warenkorb hinzufügen</button>
+                <br>
+            </div>
+        </div>
+
+
+        <!-- 1 TSHIRT-->
+        <div class="pr">
+            <img src="img/1_black.jpg" class="product-img">
+            <div>
+                <p class="product-head" name="product_name" data-name="T-shirt">T-Shirt</p>
+                <p name="price" data-price="25">Preis: 25€</p>
+                <label for=size>Größe: </label>
+                <select name="size" aria-label="Größe:">
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                    <option value="3XL">3XL</option>
+                    <option value="4XL">4XL</option>
+                    <option value="5XL">5XL</option>
+                </select>
+                <br>
+                <label for="sex">Sexualität UwU: </label>
+                <select name="sex">
+                    <option value="K">Kinder</option>
+                    <option value="M">Herren</option>
+                    <option value="F">Frauen</option>
+                </select>
+                <br>
+                <label for="color">Farbe: </label>
+                <select name="color" onchange="changeColor(this, 1)">
+                    <option value="black">black</option>
+                    <option value="burgundy">burgundy</option>
+                    <option value="navy">navy</option>
+                    <option value="bottlegreen">bottlegreen</option>
+                </select>
+                <br>
+                <label for="buy_count">Anzahl von Produkten: </label>
+                <input type="number" name="buy_count" value="0" max="5" min="0" />
+                <button onclick="add(this, 1)" class="btnoshop">Zum Warenkorb hinzufügen</button>
+                <br>
+            </div>
+        </div>
+
+
+
+        <!-- 2 RADIERGUMMI-->
+        <div class="pr">
+            <img src="img/2.jpg" class="product-img">
+            <div>
+                <p class="product-head" name="product_name" data-name="Radiergummi">Radiergummi</p>
+                <p name="price" data-price="1">Preis: 1€</p>
+                <br>
+                <label for="buy_count">Anzahl von Produkten: </label>
+                <input type="number" name="buy_count" value="0" max="5" min="0" />
+                <button onclick="add(this, 2)" class="btnoshop">Zum Warenkorb hinzufügen</button>
+                <br>
+            </div>
+        </div>
+
+        <!-- 3 Block-->
+        <div class="pr">
+            <img src="img/3_liniert.jpg" class="product-img">
+            <div>
+                <p class="product-head" name="product_name" data-name="Block">Block</p>
+                <p name="price" data-price="3.5">Preis: 3,50€</p>
+                <label for="color">Linienart: </label>
+                <select name="color" onchange="changeColor(this, 3)">
+                    <option value="liniert">Liniert</option>
+                    <option value="kariert">Kariert</option>
+                </select>
+                <br>
+                <label for="buy_count">Anzahl von Produkten: </label>
+                <input type="number" name="buy_count" value="0" max="5" min="0" />
+                <button onclick="add(this, 3)" class="btnoshop">Zum Warenkorb hinzufügen</button>
+                <br>
+            </div>
+        </div>
+
+        <!-- 4 Bambus-Kugelschreiber-->
+        <div class="pr">
+            <img src="img/4.jpg" class="product-img">
+            <div>
+                <p class="product-head" name="product_name" data-name="Bambus-Kugelschreiber">Bambus-Kugelschreiber</p>
+                <p name="price" data-price="2">Preis: 2€</p>
+                <br>
+                <label for="buy_count">Anzahl von Produkten: </label>
+                <input type="number" name="buy_count" value="0" max="5" min="0" />
+                <button onclick="add(this, 4)" class="btnoshop">Zum Warenkorb hinzufügen</button>
+                <br>
+            </div>
+        </div>
+
+        <!-- 5 Bleistift-->
+        <div class="pr">
+            <img src="img/5.jpg" class="product-img">
+            <div>
+                <p class="product-head" name="product_name" data-name="Bleistift">Bleistift</p>
+                <p name="price" data-price="1.5">Preis: 1,50€</p>
+                <br>
+                <label for="buy_count">Anzahl von Produkten: </label>
+                <input type="number" name="buy_count" value="0" max="5" min="0" />
+                <button onclick="add(this, 5)" class="btnoshop">Zum Warenkorb hinzufügen</button>
+                <br>
+            </div>
+        </div>
+
+        <!-- 6 Trinkflasche-->
+        <div class="pr">
+            <img src="img/6.jpg" class="product-img">
+            <div>
+                <p class="product-head" name="product_name" data-name="Trinkflasche">Trinkflasche</p>
+                <p name="price" data-price="12">Preis: 12€</p>
+                <br>
+                <label for="buy_count">Anzahl von Produkten: </label>
+                <input type="number" name="buy_count" value="0" max="5" min="0" />
+                <button onclick="add(this, 6)" class="btnoshop">Zum Warenkorb hinzufügen</button>
+                <br>
+            </div>
+        </div>
+
+        <!-- 7 Trinkflasche-->
+        <div class="pr">
+            <img src="img/7.jpg" class="product-img">
+            <div>
+                <p class="product-head" name="product_name" data-name="Tasse">Tasse</p>
+                <p name="price" data-price="13">Preis: 13€</p>
+                <br>
+                <label for="buy_count">Anzahl von Produkten: </label>
+                <input type="number" name="buy_count" value="0" max="5" min="0" />
+                <button onclick="add(this, 7)" class="btnoshop">Zum Warenkorb hinzufügen</button>
+                <br>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
     </div>
-    <div class="prend"> <!-- T-Shirt-->
-    <img src="img/gymlap_logo.png" class="pr-ico"><p>T-Shirt 25€</p>
-    <label for="groesse-shirt">Größe: </label>
-    <select name="groesse" id="groesse-shirt">
-        <option value="5XLK">5XL (Kinder)</option>
-        <option value="4XLK">4XL (Kinder)</option>
-        <option value="3XLK">3XL (Kinder)</option>
-        <option value="XXLK">XXL (Kinder)</option>
-        <option value="XLK">XL (Kinder)</option>
-        <option value="LK">L (Kinder)</option>
-        <option value="MK">M (Kinder)</option>
-        <option value="SK">S (Kinder)</option>
-        <!--Herren-->
-        <option value="5XLH">5XL (Herren)</option>
-        <option value="4XLH">4XL (Herren)</option>
-        <option value="3XLH">3XL (Herren)</option>
-        <option value="XXLH">XXL (Herren)</option>
-        <option value="XLH">XL (Herren)</option>
-        <option value="LH">L (Herren)</option>
-        <option value="MH">M (Herren)</option>
-        <option value="SH">S (Herren)</option>
-        <!--Frauen-->
-        <option value="5XLF">5XL (Frauen)</option>
-        <option value="4XLF">4XL (Frauen)</option>
-        <option value="3XLF">3XL (Frauen)</option>
-        <option value="XXLF">XXL (Frauen)</option>
-        <option value="XLF">XL (Frauen)</option>
-        <option value="LF">L (Frauen)</option>
-        <option value="MF">M (Frauen)</option>
-        <option value="SF">S (Frauen)</option>
-    </select>
-    <br>
-    <label for="color-hoodie">Farbe: </label>
-    <select name="color" id="color-hoodie">
-        <option value="Black">Black</option>
-        <option value="Burgundy">Burgundy</option>
-        <option value="Navy">Navy</option>
-        <option value="Bottle-Green">Bottle Green</option>
-    </select>
-    <br>
-    <label for="ticketNum-shirt">Anzahl von Produkten: </label>
-    <input id="ticketNum-shirt" type="number" name="ticketNum" value="0" max="5" min="0" />
-    <button onclick="add('T-Shirt', 20, 'groesse-shirt', 'ticketNum-shirt', null)" class="btnoshop" id="addbutton">Zum Warenkorb hinzufügen</button>
-    <br>
-    </div>
-    </div>
-    <!--<button onclick="lesen()"  id="addbutton">Lesen</button>
-    <button onclick="clears()"  id="addbutton">clear</button> -->
-    
 </body>
+
 </html>

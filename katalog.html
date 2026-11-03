@@ -25,7 +25,7 @@
     </style>
 </head>
 <body>
-    <div class="header-div"><img src="img/gymlap_logo.png" class="header-ico" ><h1>Schülerfirma Katalog</h1></div>
+    <div class="header-div"><img src="img/gymlap_logo.png" class="header-ico"  ><h1>Schülerfirma Katalog</h1></div>
     <div class="header-navdiv"><nav>
     <button class="btnoshop buttonbacknav" id="anfragen" onclick="document.location='index.html'">Zurück</button>
     <button id="corp" onclick="corp()" ><i class="fa-solid fa-cart-shopping"></i>: 0</button>
@@ -34,7 +34,7 @@
     <!-- <button onclick="test()" class="btntoshop"> Test </button> -->
     <br>
     <div class="pr">
-    <img src="img/gymlap_logo.png" class="pr-ico"><p>Hoodie 40€</p>
+    <img src="img/Hoodie Vorderseite.jpeg" class="pr-ico"><p>Hoodie 35.00€</p>
     <label for="groesse-hoodie">Größe: </label>
     <select name="groesse" id="groesse-hoodie">
         <option value="S">Small (Unisex)</option>
@@ -51,21 +51,52 @@
     <br>
     <label for="ticketNum-hoodie">Anzahl von Produkten: </label>
     <input id="ticketNum-hoodie" type="number" name="ticketNum" value="0" max="5" min="0" />
-    <button onclick="add('Hoodie', 40, 'groesse-hoodie', 'ticketNum-hoodie', 'color-hoodie')" class="btnoshop" id="addbutton">Zum Warenkorb hinzufügen</button>
+    <button onclick="add('Hoodie', 35, 'groesse-hoodie', 'ticketNum-hoodie', 'color-hoodie')" class="btnoshop" id="addbutton">Zum Warenkorb hinzufügen</button>
     <br>
     </div>
-    <div class="prend">
-    <img src="img/gymlap_logo.png" class="pr-ico"><p>Cap 20€</p>
-    <label for="groesse-cap">Größe: </label>
-    <select name="groesse" id="groesse-cap">
-        <option value="S">Small (Apfel)</option>
-        <option value="M">Medium (Orange)</option>
-        <option value="L">Large (Melone)</option>
+    <div class="prend"> <!-- T-Shirt-->
+    <img src="img/gymlap_logo.png" class="pr-ico"><p>T-Shirt 25€</p>
+    <label for="groesse-shirt">Größe: </label>
+    <select name="groesse" id="groesse-shirt">
+        <option value="5XLK">5XL (Kinder)</option>
+        <option value="4XLK">4XL (Kinder)</option>
+        <option value="3XLK">3XL (Kinder)</option>
+        <option value="XXLK">XXL (Kinder)</option>
+        <option value="XLK">XL (Kinder)</option>
+        <option value="LK">L (Kinder)</option>
+        <option value="MK">M (Kinder)</option>
+        <option value="SK">S (Kinder)</option>
+        <!--Herren-->
+        <option value="5XLH">5XL (Herren)</option>
+        <option value="4XLH">4XL (Herren)</option>
+        <option value="3XLH">3XL (Herren)</option>
+        <option value="XXLH">XXL (Herren)</option>
+        <option value="XLH">XL (Herren)</option>
+        <option value="LH">L (Herren)</option>
+        <option value="MH">M (Herren)</option>
+        <option value="SH">S (Herren)</option>
+        <!--Frauen-->
+        <option value="5XLF">5XL (Frauen)</option>
+        <option value="4XLF">4XL (Frauen)</option>
+        <option value="3XLF">3XL (Frauen)</option>
+        <option value="XXLF">XXL (Frauen)</option>
+        <option value="XLF">XL (Frauen)</option>
+        <option value="LF">L (Frauen)</option>
+        <option value="MF">M (Frauen)</option>
+        <option value="SF">S (Frauen)</option>
     </select>
     <br>
-    <label for="ticketNum-cap">Anzahl von Produkten: </label>
-    <input id="ticketNum-cap" type="number" name="ticketNum" value="0" max="5" min="0" />
-    <button onclick="add('Cap', 20, 'groesse-cap', 'ticketNum-cap', null)" class="btnoshop" id="addbutton">Zum Warenkorb hinzufügen</button>
+    <label for="color-hoodie">Farbe: </label>
+    <select name="color" id="color-hoodie">
+        <option value="Black">Black</option>
+        <option value="Burgundy">Burgundy</option>
+        <option value="Navy">Navy</option>
+        <option value="Bottle-Green">Bottle Green</option>
+    </select>
+    <br>
+    <label for="ticketNum-shirt">Anzahl von Produkten: </label>
+    <input id="ticketNum-shirt" type="number" name="ticketNum" value="0" max="5" min="0" />
+    <button onclick="add('T-Shirt', 20, 'groesse-shirt', 'ticketNum-shirt', null)" class="btnoshop" id="addbutton">Zum Warenkorb hinzufügen</button>
     <br>
     </div>
     </div>

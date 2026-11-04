@@ -130,10 +130,10 @@ function order() {
     cartText += `\nGesamt: ${total.toFixed(2)} €`;
 
     navigator.clipboard.writeText(cartText).then(function () {
-        alert("Warenkorb wurde in die Zwischenablage kopiert!");
+        
     }).catch(function (err) {
         console.error("Fehler beim Kopieren: ", err);
-        alert("Kopieren fehlgeschlagen!");
+        
     });
 }
 

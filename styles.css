@@ -1,7 +1,32 @@
 nav {
     text-align: right;
 }
+.header-index {
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    display: flex;
+}
+.header-div-index {
+    border-bottom: 1px solid #aaa;
+}
+.nav-index {
+    margin-top: 5px;
+    border-bottom: 1px solid #aaa;
+}
 
+.nav-index button {
+    margin-bottom: 5px;
+}
+.footer-index {
+    margin-top: 5px;
+    border-top: 1px solid #aaa;
+}
+.neuepr img {
+    height: 100px;
+    width: 100%;
+    scale: 100%;
+}
 /* katalog header div */
 .header-div {
     display: flex;

@@ -1,5 +1,6 @@
 nav {
     text-align: right;
+    margin-right: 2px;
 }
 .header-index {
     align-items: center;
@@ -22,6 +23,12 @@ nav {
     margin-top: 5px;
     border-top: 1px solid #aaa;
 }
+.neuepr h2{
+    border-bottom: 1px solid #aaa;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 2px;
+}
 .neuepr img {
     height: 100px;
     width: 100%;
@@ -39,7 +46,8 @@ nav {
 
 .header-div h1 {
     margin: 0;
-    font-size: 5vw;
+    font-size: 3.5vw;
+    margin-bottom: 5px;
 }
 
 .header-ico {
@@ -57,10 +65,13 @@ nav {
     position: relative;
     scale: 100%;
 }
-
+.header-navdiv {
+    border-bottom: 1px solid #aaa;
+}
 .header-navdiv button {
     margin-top: 5px;
     margin-bottom: 5px;
+    
 }
 
 .buttonbacknav {
@@ -232,4 +243,7 @@ h6 {
 
 .buy {
     font-family:sans-serif;
+}
+.corpdiv h6 {
+    font-size: 2vw;
 }

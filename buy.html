@@ -4,14 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    
     <title>GymLap Schülerfirma Katalog</title>
     <link rel="stylesheet" href="styles.css">
     <script src="script/katalog.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-    <h1>Schülerfirma Katalog</h1>
+    <div class="buy">
+        <div class="header-div"><img src="img/gymlap_logo.png" class="header-ico">
+            <h1>Anfragen</h1>
+        </div>
+        <div class="header-navdiv">
+            <nav2>
+                <button onclick="document.location='corp.html'" id="anfragen">Zurück</button>
+            </nav2>
+        </div>
     <h5>Bestellprozess</h5>
     <p>(Aus Datenschutz bedingten gründen müssen sie die Bestellnachricht an den "Schul Shop" Account schicken.)</p><br>
     <ol>
@@ -23,8 +32,30 @@
     </ol>
     <p></p> <!-- Erklären mit Geld mitbringen? -->
     <button onclick="order()" class="btnoshop" id="addbutton">Bestellung Kopieren</button>
-    <iframe src="https://login.schulmanager-online.de/#/login" title="Katalog Bestellung" width="100%" height="600">
+    <iframe src="https://login.schulmanager-online.de/#/modules/messenger/messages" title="Katalog Bestellung" width="100%" height="600">
     </iframe>
+    </div>
 </body>
 
+<!--<footer>
+    <div class="footer-content">
+        <h3>Schülerfirma Katalog</h3>
+        
+        <p>"Deine Mutter" -Justus Reiter (Als Arbeitszeit betrug deklariert) <br> "Wo sind unsere divs? Leute" -Stuart Drew (Um 0 Uhr gemerkt)</p>
+        <ul class="socials">
+            <li><a href="https://github.com/Stuple-Networks/stuatsts"><i class="fa-brands fa-github"></i></a></li>
+        </ul>
+        <p>Aktive Entwickler: Stuart Drew (Mitsuba100) & Justus Reiter (Chase6477) <br> Entwickelt von Stuart Drew & Justus Reiter</p>
+    </div>
+    <div class="footer-bottom">
+            <p>Copyright &copy; <a href="#">Stuple-Networks</a></p>
+                <div class="footer-menu">
+                    <ul class="f-menu">
+                        <li><a href="datenschutz.html">Datenschutz</a></li>
+                        <li><a href="https://github.com/Stuple-Networks/stuatsts/issues">Bug gefunden?</a></li>
+                        <li><a href="mailto:support@stuple.net">Kontakt</a></li>
+                    </ul>
+                </div>
+        </div>
+</footer> -->
 </html>

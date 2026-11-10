@@ -229,3 +229,7 @@ h6 {
     height: auto;
     object-fit: contain;
 }
+
+.buy {
+    font-family:sans-serif;
+}

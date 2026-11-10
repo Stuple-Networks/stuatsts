@@ -1,0 +1,41 @@
+
+nav {
+    text-align: left;
+    border-bottom: 1px solid #aaa;
+    margin: auto;
+}
+body{
+    
+    background: #fcfcfc;
+    min-height: 100vh;
+    margin: 0;
+    clear: both;
+}
+.header-index {
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    display: flex;
+}
+.header-div-index {
+    border-bottom: 1px solid #aaa;
+}
+.nav-index {
+    margin-top: 5px;
+    border-bottom: 1px solid #aaa;
+}
+.buttonbacknav {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 2px;
+}
+.nav-index button {
+    margin-bottom: 5px;
+}
+.datenschutz {
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    display: flex;
+    flex: 1;
+}

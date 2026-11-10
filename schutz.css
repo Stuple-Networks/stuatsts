@@ -1,7 +1,6 @@
 
 nav {
     text-align: left;
-    border-bottom: 1px solid #aaa;
     margin: auto;
 }
 body{
@@ -38,4 +37,42 @@ body{
     margin: auto;
     display: flex;
     flex: 1;
+}
+#anfragen {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#anfragen:hover {
+    background-color: #2980b9;
+}
+.header-div {
+    display: flex;
+    position: relative;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #aaa;
+}
+
+.header-div h1 {
+    margin: 0;
+    font-size: 3.5vw;
+    margin-bottom: 5px;
+}
+
+.header-ico {
+    object-fit: contain;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    height: 91px;
+    width: 336px;
+    scale: 100%;
 }

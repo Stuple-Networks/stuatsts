@@ -8,6 +8,7 @@ body {
 }
 .main-content{
     flex: 1;
+    margin-left: 2px;
 }
 footer {
     margin-top: auto; 

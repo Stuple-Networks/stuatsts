@@ -30,7 +30,7 @@ nav {
     margin-left: 2px;
 }
 .neuepr img {
-    
+    height: 50%;
     width: 100%;
     scale: 100%;
 }
@@ -246,4 +246,8 @@ h6 {
 }
 .corpdiv h6 {
     font-size: 2vw;
+}
+
+.cart-table{
+    width: 100%;    
 }

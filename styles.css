@@ -49,7 +49,7 @@ nav {
 
 .header-div h1 {
     margin: 0;
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
     margin-bottom: 5px;
 }
 
@@ -60,9 +60,8 @@ nav {
     left: 0;
     height: 91px;
     width: 336px;
-    
+    scale: 90%;    
 }
-
 .pr img {
     object-fit: contain;
     position: relative;

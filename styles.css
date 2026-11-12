@@ -57,7 +57,7 @@ nav {
     left: 0;
     height: 91px;
     width: 336px;
-    scale: 100%;
+    
 }
 
 .pr img {
@@ -102,13 +102,9 @@ nav {
 
     /* logo still needs to move over in next fix to the left*/
     .header-ico {
-        position: absolute;
-        left: 0;
-        height: 91px;
-        width: 336px;
-        object-fit: contain;
-        transform: scale(0.4);
-        transform-origin: left center;
+        height: 70px;
+        width: auto;
+        max-width: 250px;
     }
 }
 
@@ -116,14 +112,9 @@ nav {
 
     /* logo still needs to move over in next fix to the left*/
     .header-ico {
-        object-fit: contain;
-        align-items: center;
-        position: absolute;
-        left: 0;
-        height: 91px;
-        width: 336px;
-        transform: scale(0.3);
-        transform-origin: left center;
+        height: 50px;
+        width: auto;
+        max-width: 180px;
     }
 }
 

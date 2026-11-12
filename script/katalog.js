@@ -150,4 +150,9 @@ function removeItems(index) {
 document.addEventListener('DOMContentLoaded', function () {
     listCart();
     cartCountUpdate();
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-index').innerHTML = data;
+        });
 });

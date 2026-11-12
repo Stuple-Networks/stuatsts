@@ -1,4 +1,6 @@
-
+* {
+    font-family: sans-serif;
+}
 nav {
     text-align: left;
     margin: auto;
@@ -63,7 +65,7 @@ body{
 
 .header-div h1 {
     margin: 0;
-    font-size: 3.5vw;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
     margin-bottom: 5px;
 }
 
@@ -74,5 +76,25 @@ body{
     left: 0;
     height: 91px;
     width: 336px;
-    scale: 100%;
+    
+}
+@media (max-width: 960px) {
+
+    /* logo still needs to move over in next fix to the left*/
+    .header-ico {
+        height: 70px;
+        width: auto;
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* logo still needs to move over in next fix to the left*/
+    .header-ico {
+        height: 50px;
+        width: auto;
+        max-width: 180px;
+        scale: 0%;
+    }
 }

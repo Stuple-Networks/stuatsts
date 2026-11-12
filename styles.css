@@ -107,7 +107,7 @@ nav {
         height: 91px;
         width: 336px;
         object-fit: contain;
-        transform: scale(0.5);
+        transform: scale(0.4);
         transform-origin: left center;
     }
 }

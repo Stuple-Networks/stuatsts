@@ -97,3 +97,27 @@ body{
         scale: 0%;
     }
 }
+.impressum {
+    border-top: 1px solid #aaa ;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    display: flex;
+    flex: 1;
+}
+.kontakt {
+    border-top: 1px solid #aaa ;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    display: flex;
+    flex: 1;
+}
+.rechte {
+    border-top: 1px solid #aaa ;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    display: flex;
+    flex: 1;
+}

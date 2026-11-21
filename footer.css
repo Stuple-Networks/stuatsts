@@ -16,7 +16,7 @@ footer {
     height: auto;
     padding-top: 10px;
     color: #fff;
-    background: #111;
+    background: #1e242b;
     font-family: sans-serif;
 }
 .footer-content{
@@ -71,7 +71,7 @@ footer {
 }
 
 .footer-bottom{
-    background: #000;
+    background: #1e242b;
     width: 100%;
     padding: 20px;
     display: flex;
